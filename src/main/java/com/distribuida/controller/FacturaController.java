@@ -49,6 +49,7 @@ public class FacturaController {
     public String findOne(@RequestParam(name = "idFactura", required = false) Integer idFactura,
                           @RequestParam(name = "opcion", required = false) Integer opcion,
                           ModelMap modelMap) {
+    	
         if (idFactura != null) {
             Factura factura = facturaService.findOne(idFactura);
             modelMap.addAttribute("factura", factura);
@@ -73,9 +74,9 @@ public class FacturaController {
             @RequestParam(name = "idFactura", required = false) @Nullable Integer idFactura,
             @RequestParam(name = "numFactura") @Nullable String numFactura,
             @RequestParam(name = "fechaFactura") @Nullable @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaFactura,
-            @RequestParam(name = "totalNeto") @Nullable double totalNeto,
-            @RequestParam(name = "iva") @Nullable double iva,
-            @RequestParam(name = "total") @Nullable double total,
+            @RequestParam(name = "totalNeto") @Nullable Double totalNeto,
+            @RequestParam(name = "iva") @Nullable Double iva,
+            @RequestParam(name = "total") @Nullable Double total,
             @RequestParam(name = "idCliente") @Nullable Integer idCliente,
             @RequestParam(name = "idPedido") @Nullable Integer idPedido,
             @RequestParam(name = "idFormaPago") @Nullable Integer idFormaPago
