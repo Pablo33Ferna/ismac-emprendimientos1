@@ -25,19 +25,6 @@ public class PedidoServiceImpl implements PedidoService {
 		return pedidoDAO.findOne(id);
 	}
 
-	@Override
-	public void add(int idPedido, String numPedido, Date fechapedido, int confirmacionPedido) {
-		// TODO Auto-generated method stub
-		Pedido pedido = new Pedido (idPedido, numPedido, fechapedido, confirmacionPedido);
-		pedidoDAO.add(pedido);
-	}
-
-	@Override
-	public void up(int idPedido, String numPedido, Date fechapedido, int confirmacionPedido) {
-		// TODO Auto-generated method stub
-		Pedido pedido = new Pedido (idPedido, numPedido, fechapedido, confirmacionPedido);
-		pedidoDAO.up(pedido);	
-	}
 
 	@Override
 	public void del(int id) {
@@ -49,6 +36,20 @@ public class PedidoServiceImpl implements PedidoService {
 	public List<Pedido> findAll(String busqueda) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void add(int idPedido, String numPedido, Date fechapedido, int confirmacionPedido) {
+		// TODO Auto-generated method stub
+		Pedido pedido = new Pedido (idPedido, numPedido, fechapedido, confirmacionPedido);
+		pedidoDAO.add(pedido);
+	}
+
+	@Override
+	public void up(int idPedido, String numPedido, Date fechapedido, int confirmacionPedido) {
+		// TODO Auto-generated method stub
+		Pedido pedido = new Pedido (idPedido, numPedido, fechapedido, confirmacionPedido);
+		pedidoDAO.up(pedido);
 	}
 
 

@@ -17,4 +17,11 @@ public interface PedidoService {
 	public void del(int id);
 
 	public List<Pedido> findAll(String busqueda);
+
+	
+
+
+
+
+
 }

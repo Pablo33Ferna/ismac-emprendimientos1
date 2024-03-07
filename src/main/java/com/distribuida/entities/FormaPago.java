@@ -9,6 +9,9 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * 
+ */
 @Component
 @Entity
 @Table(name = "formas_pago")
@@ -26,6 +29,7 @@ public class FormaPago {
 	public FormaPago() {}
 	
 	
+
 
 	public FormaPago(int idFormaPago, String formaspago, String descripcion) {
 		this.idFormaPago = idFormaPago;

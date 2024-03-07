@@ -35,7 +35,13 @@ public class Pedido {
 	private Cliente cliente;
 	public Pedido() {}
 
-	
+
+	/**
+	 * @param idPedido
+	 * @param numPedido
+	 * @param fechapedido
+	 * @param confirmacionPedido
+	 */
 	public Pedido(int idPedido, String numPedido, Date fechapedido, int confirmacionPedido) {
 
 		this.idPedido = idPedido;
