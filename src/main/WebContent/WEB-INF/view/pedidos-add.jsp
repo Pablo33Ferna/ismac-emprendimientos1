@@ -19,14 +19,13 @@
  <br/><br/>
  fechapedido
  <input type="date" id="fechapedido" name="fechapedido" value="${fn:substring(pedido.fechapedido,0,10)}">
-	 <br/><br/>
-  confirmacionPedido
+<br/><br/>
+ confirmacionPedido
  <input type="number" id="confirmacionPedido" name="confirmacionPedido" value="${pedido.confirmacionPedido}">
  <br/><br/>
-
  <button type="submit">Guardar</button>
  <button type="button" onclick="window.location.href='/ismac-emprendimientos1-web/pedidos/findAll';return false;">Cancelar</button>
 	</form>
-
+    
 </body>
 </html>

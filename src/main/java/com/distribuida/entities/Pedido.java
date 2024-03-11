@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -26,6 +27,7 @@ public class Pedido {
 	@Column(name = "numeroPedido")
 	private String numPedido;
 	@Column(name = "fechaPedido")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fechapedido;
 	@Column(name = "confirmacionPedido")
 	private int confirmacionPedido;

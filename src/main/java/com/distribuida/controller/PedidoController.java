@@ -70,15 +70,14 @@ public class PedidoController {
 			  @RequestParam ("numPedido") @Nullable String numPedido,
 			  @RequestParam ("fechapedido") @Nullable @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechapedido,
 			  @RequestParam ("confirmacionPedido") @Nullable Integer confirmacionPedido,
-		
 			  @RequestParam ("idCliente") @Nullable Integer idCliente,
 			  Model model) {
 		
 		if(idPedido == null) {
 	
-			pedidoService.add(0 , numPedido,fechapedido,confirmacionPedido);
+			pedidoService.add(0 , numPedido, fechapedido, confirmacionPedido);
 		}else {
-			pedidoService.up(idPedido , numPedido,fechapedido,confirmacionPedido);
+			pedidoService.up(idPedido , numPedido, fechapedido, confirmacionPedido);
 
 		}
 		 

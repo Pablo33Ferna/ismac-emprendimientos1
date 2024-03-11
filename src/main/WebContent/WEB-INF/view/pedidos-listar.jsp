@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
      <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
@@ -30,8 +31,11 @@
 		<c:forEach var="item" items="${pedidos}">
 			<tr>
 				<td>${item.idPedido}</td>
-				<td>${item.numPedido}</td>				
-				<td>${item.fechapedido}</td>
+			
+				<td>${item.numPedido}</td>		
+					
+				<td>${fn:substring(item.fechapedido,0,10)}</td>
+				
 				<td>${item.confirmacionPedido}</td>
 				<td>
 					<button> <a href="${pageContext.request.contextPath}/pedidos/findOne?idPedido=${item.idPedido}&opcion=1"> Actualizar </a></button>
@@ -42,6 +46,31 @@
 			</c:forEach>
 		</tbody>
 	</table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
