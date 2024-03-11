@@ -40,7 +40,6 @@
 				<td>
 					<button> <a href="${pageContext.request.contextPath}/pedidos/findOne?idPedido=${item.idPedido}&opcion=1"> Actualizar </a></button>
 					<button> <a href="${pageContext.request.contextPath}/pedidos/findOne?idPedido=${item.idPedido}&opcion=2"> Eliminar </a></button>
-					
 				</td>
 			</tr>
 			</c:forEach>
