@@ -39,17 +39,23 @@ public class PedidoServiceImpl implements PedidoService {
 	}
 
 	@Override
-	public void add(int idPedido, String numPedido, Date fechapedido, int confirmacionPedido) {
+	public void add(int idPedido, String numPedido, Date fechapedido, int confirmacionPedido, Integer idCliente,
+			Integer fk_empresaproducto) {
 		// TODO Auto-generated method stub
+		
 		Pedido pedido = new Pedido (idPedido, numPedido, fechapedido, confirmacionPedido);
 		pedidoDAO.add(pedido);
+		
 	}
 
 	@Override
-	public void up(int idPedido, String numPedido, Date fechapedido, int confirmacionPedido) {
+	public void up(int idPedido, String numPedido, Date fechapedido, int confirmacionPedido, Integer idCliente,
+			Integer fk_empresaproducto) {
 		// TODO Auto-generated method stub
+		
 		Pedido pedido = new Pedido (idPedido, numPedido, fechapedido, confirmacionPedido);
 		pedidoDAO.up(pedido);
+		
 	}
 
 

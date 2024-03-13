@@ -35,22 +35,27 @@ public class Pedido {
 	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	@JoinColumn(name="fk_idCliente")
 	private Cliente cliente;
+	
+	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="fk_empresaproducto")
+	private Empresa_producto empresaproductos;
+	
 	public Pedido() {}
 
 
-	/**
-	 * @param idPedido
-	 * @param numPedido
-	 * @param fechapedido
-	 * @param confirmacionPedido
-	 */
-	public Pedido(int idPedido, String numPedido, Date fechapedido, int confirmacionPedido) {
 
+
+
+
+	public Pedido(int idPedido, String numPedido, Date fechapedido, int confirmacionPedido) {
 		this.idPedido = idPedido;
 		this.numPedido = numPedido;
 		this.fechapedido = fechapedido;
 		this.confirmacionPedido = confirmacionPedido;
 	}
+
+
+
 
 
 
@@ -86,11 +91,29 @@ public class Pedido {
 		this.confirmacionPedido = confirmacionPedido;
 	}
 
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Empresa_producto getEmpresaproductos() {
+		return empresaproductos;
+	}
+
+	public void setEmpresaproductos(Empresa_producto empresaproductos) {
+		this.empresaproductos = empresaproductos;
+	}
+
 	@Override
 	public String toString() {
 		return "Pedido [idPedido=" + idPedido + ", numPedido=" + numPedido + ", fechapedido=" + fechapedido
-				+ ", confirmacionPedido=" + confirmacionPedido + "]";
+				+ ", confirmacionPedido=" + confirmacionPedido + ", cliente=" + cliente + ", empresaproductos="
+				+ empresaproductos + "]";
 	}
+
 	
 	
 	

@@ -54,10 +54,10 @@ public class Empresa_productoServiceImpl implements Empresa_productoService {
 	}
 
 	@Override
-	public void up(int idempresa_producto, String producto, String descripcion, int fk_idEmpresa, int fk_idProductl) {
+	public void up(int idempresa_producto, String producto, String descripcion, int fk_idEmpresa, int fk_idProducto) {
 		// TODO Auto-generated method stub
 		Empresa empresa = empresaDAO.findOne(fk_idEmpresa);
-		Producto productoA = productoDAO.findOne(fk_idProductl);
+		Producto productoA = productoDAO.findOne(fk_idProducto);
 		
 		Empresa_producto empresa_producto = new Empresa_producto(idempresa_producto, producto, descripcion);
 		

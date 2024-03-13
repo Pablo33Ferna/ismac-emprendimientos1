@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.distribuida.dto.CategoriaService;
 import com.distribuida.dto.ClienteService;
+import com.distribuida.dto.Empresa_productoService;
 import com.distribuida.dto.FormaPagoService;
 import com.distribuida.dto.PedidoService;
 import com.distribuida.entities.Categoria;
 import com.distribuida.entities.Cliente;
+import com.distribuida.entities.Empresa_producto;
 import com.distribuida.entities.FormaPago;
 import com.distribuida.entities.Pedido;
 
@@ -34,6 +36,9 @@ public class PedidoController {
 	@Autowired
 	private ClienteService clienteService;
 
+	@Autowired
+	private Empresa_productoService empresa_ProductoService;
+	
 	@GetMapping("/findAll")
 	public String findAll(Model model) {
 		
@@ -45,39 +50,41 @@ public class PedidoController {
 	@GetMapping("/findOne")
 	public String findOne(@RequestParam("idPedido") @Nullable Integer idPedido,
 			@RequestParam("opcion") @Nullable Integer opcion,
-			ModelMap modelMap) {
+			ModelMap modelMap
+			){
+		
 			if(idPedido != null) {
 				Pedido pedido = pedidoService.findOne(idPedido);
 				modelMap.addAttribute("pedido",pedido);
 			}
+			
 			List<Cliente> clientes = clienteService.findAll();
 			modelMap.addAttribute("clientes",clientes);
+			
+			List<Empresa_producto> empresaproductos = empresa_ProductoService.findAll();
+			modelMap.addAttribute("empresaproductos",empresaproductos);
 			
 			if(opcion == 1)return "pedidos-add";
 			else return "pedidos-del";
 	}
-	
-
-	/**
-	 * @param idPedido
-	 * @param numPedido
-	 * @param fechapedido
-	 * @param confirmacionPedido
-	 */
 	
 	@PostMapping("/add")
 	public String add(@RequestParam ("idPedido") @Nullable Integer idPedido,
 			  @RequestParam ("numPedido") @Nullable String numPedido,
 			  @RequestParam ("fechapedido") @Nullable @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechapedido,
 			  @RequestParam ("confirmacionPedido") @Nullable Integer confirmacionPedido,
-			  @RequestParam ("idCliente") @Nullable Integer idCliente,
-			  Model model) {
+			 
+			  @RequestParam ("fk_idCliente") @Nullable Integer fk_idCliente,
+			  @RequestParam ("fk_empresaproducto") @Nullable Integer fk_empresaproducto
+	
+			  
+			  ) {
 		
 		if(idPedido == null) {
 	
-			pedidoService.add(0 , numPedido, fechapedido, confirmacionPedido);
+			pedidoService.add(0 , numPedido, fechapedido, confirmacionPedido,fk_idCliente,fk_empresaproducto);
 		}else {
-			pedidoService.up(idPedido , numPedido, fechapedido, confirmacionPedido);
+			pedidoService.up(idPedido , numPedido, fechapedido, confirmacionPedido,fk_idCliente,fk_empresaproducto);
 
 		}
 		 
